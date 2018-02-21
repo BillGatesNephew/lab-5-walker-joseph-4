@@ -30,20 +30,20 @@ By submitting this \LaTeX{} document, I affirm that
         In general, a controller module is first implemented in order provide a manner for recieving output from and sending input to some piece of hardware. An interface module is then built that performs the complex manipulations on the hardware needed in order to obtain desired behavior. This interface is then used in other modules as a simple means of performing the hardware manipulation.
     
     \subsection{Question 2: MVC Relationships} 
-
+        
     \subsection{Question 3: Memory-Mapped IO Operation}
         Memory mapped IO works by mapping I/O devices to a memory address within the address space of a functional unit, such as a CPU. The I/O device can then be accessed as if it were just data in RAM allowing for both writing and reading functionality. The access to these addresses by the functional unit are monitored by the I/O devices, which then respond to the access appropriately.
     
-    \subsection{Question 4: Memory-Mapped IO and Load/Store Instructions}
+    \subsection{Question 4: Memory-Mapped IO and Instructions}
         Memory-mapped IO relates to the load/store assembly instructions because it provides an abstraction that allows I/O to devices to be replaced by either calling a load word instruction to the address used to represent the device, which triggers the IO device to provide data to read, or by calling a store word instruction to the address used to represent the device, which triggers the IO device to read provided data. 
         
         640
     \subsection{Question 5: VGA Clock}
         Assuming a 640 by 640 VGA display with a 60 Hz refresh rate:
         \begin{align*}
-            VGA_{clock} &= pixels * refresh_rate \\
-            VGA_{clock} &= (640 * 640 pixels) * (60 Hz) \\
-            VGA_{clock} &= 24576000 Hz = 24.576 MHz
+            VGA_{clock} &= \text{pixels} * \text{refresh rate} \\
+            VGA_{clock} &= (640 * 640\; pixels) * (60\; Hz) \\
+            VGA_{clock} &= 24576000\; Hz = 24.576\; MHz
         \end{align*}
         However, this calculation does assume that there is no included overscan pixels for the monitor. 
 
