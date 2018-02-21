@@ -1,5 +1,7 @@
 \documentclass[letterpaper]{article} % Feel free to change this
 
+\usepackage{amsmath}
+
 \begin{document}
 
 \title{ECE 350: Digital Systems Lab 5}
@@ -17,5 +19,50 @@ By submitting this \LaTeX{} document, I affirm that
     \item Finally, I understand that a submission is considered submitted when it has been pushed to the server.
 \end{enumerate}
 \newpage
+
+\section{Introduction}
+    The overall goal of the lab was to familiarize ourselves with the FPGA hardware, and to demonstrate the workflow for uploading and operating the hardware. The FPGA hardware was first explored through an activity involving the display of a video to a monitor using the VGA connector on the FPGA board. During this component of the lab, the process for utilizing memory with the board was examined as well as the setup of inputs such as buttons to the board. In the second section of the lab, we explored how to handle the conversion of between different encodings of I/O data sent to the board using programmed logic in verilog.
+
+\section{Questions}
+    \subsection{Question 1: Interface vs. Controller Module}
+        An interface module offers an interface for abstracting away interactions with a more complicated piece of hardware such as a VGA output or RAM. A controller module, on the other hand, defines the actual piece of complex hardware described above with all of its complexities. Interface modules will implement a controller module that represents the complex hardware that the interface abstracts for other modules in order to make manipulations such as screen colors via VGA far simpler. 
+
+        In general, a controller module is first implemented in order provide a manner for recieving output from and sending input to some piece of hardware. An interface module is then built that performs the complex manipulations on the hardware needed in order to obtain desired behavior. This interface is then used in other modules as a simple means of performing the hardware manipulation.
+    
+    \subsection{Question 2: MVC Relationships} 
+
+    \subsection{Question 3: Memory-Mapped IO Operation}
+        Memory mapped IO works by mapping I/O devices to a memory address within the address space of a functional unit, such as a CPU. The I/O device can then be accessed as if it were just data in RAM allowing for both writing and reading functionality. The access to these addresses by the functional unit are monitored by the I/O devices, which then respond to the access appropriately.
+    
+    \subsection{Question 4: Memory-Mapped IO and Load/Store Instructions}
+        Memory-mapped IO relates to the load/store assembly instructions because it provides an abstraction that allows I/O to devices to be replaced by either calling a load word instruction to the address used to represent the device, which triggers the IO device to provide data to read, or by calling a store word instruction to the address used to represent the device, which triggers the IO device to read provided data. 
+        
+        640
+    \subsection{Question 5: VGA Clock}
+        Assuming a 640 by 640 VGA display with a 60 Hz refresh rate:
+        \begin{align*}
+            VGA_{clock} &= pixels * refresh_rate \\
+            VGA_{clock} &= (640 * 640 pixels) * (60 Hz) \\
+            VGA_{clock} &= 24576000 Hz = 24.576 MHz
+        \end{align*}
+        However, this calculation does assume that there is no included overscan pixels for the monitor. 
+
+    \subsection{Question 6: Displaying Image MIF}
+        In order to display a moving image instead of the square, there would need to be two things. First, some sort of anchor point would be needed in the image, which would be used in generating pixel values similar to the top left corner of the square generated in lab. Second, there would need to be a mapping provided for the images pixels that give their coordinate relative to the anchor point, which could be provided using memory. Using both these, displaying the images would involve calculating the coordinates of a pixel on the screen by means of the saved anchor point, and then setting this pixels RGB value appropriately.
+        
+    \subsection{Question 7: Lab Improvements}
+        For the most part, the lab seemed to be pretty well done, and it demonstrated a lot of useful manipulations for the FPGA board. The last section with the PS1 controller is really the only thing that seemed a little pointless due to its brevity.
+\section{Lab Components and Decisions}
+    \subsection{Generating Colors Using FGPA And VGA}
+
+    \subsection{Programming a Movable Square}
+
+    \subsection{Examining the PS2 I/O Device}
+
+\section{Insights Gained}
+
+\section{Challenges Faced}
+
+\section{Conclusion}
 
 \end{document}
